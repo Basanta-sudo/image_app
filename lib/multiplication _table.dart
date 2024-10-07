@@ -39,7 +39,7 @@ class _MultiplicationTableState extends State<MultiplicationTable> {
                 child: const Column(
                   children: [
                     Text(
-                      "Submit",
+                      "Submit Data",
                       style: TextStyle(color: Colors.white),
                       textDirection: TextDirection.ltr,
                       textAlign: TextAlign.center,
