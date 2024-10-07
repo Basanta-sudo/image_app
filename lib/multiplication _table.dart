@@ -10,6 +10,7 @@ class MultiplicationTable extends StatefulWidget {
 class _MultiplicationTableState extends State<MultiplicationTable> {
   TextEditingController textEditingController = TextEditingController();
   int number = 1;
+  List<String> multiplication = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,8 +29,9 @@ class _MultiplicationTableState extends State<MultiplicationTable> {
                 print(textEditingController.text);
                 number = int.parse(textEditingController.text);
                 for (int i = 1; i <= 10; i++) {
-                  print('$number x $i = ${number * i}');
+                  multiplication.add('$number x $i = ${number * i}');
                 }
+                setState(() {});
               },
               child: Container(
                 color: Colors.blue,
@@ -39,7 +41,7 @@ class _MultiplicationTableState extends State<MultiplicationTable> {
                 child: const Column(
                   children: [
                     Text(
-                      "Submit Data",
+                      "Submit",
                       style: TextStyle(color: Colors.white),
                       textDirection: TextDirection.ltr,
                       textAlign: TextAlign.center,
@@ -48,6 +50,14 @@ class _MultiplicationTableState extends State<MultiplicationTable> {
                 ),
               ),
             ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: multiplication.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Text(multiplication[index]);
+                },
+              ),
+            )
           ],
         ),
       ),
